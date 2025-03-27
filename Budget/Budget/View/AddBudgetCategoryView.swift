@@ -54,7 +54,7 @@ struct AddBudgetCategoryView: View {
                 } minimumValueLabel: {
                     Text("$0")
                 } maximumValueLabel: {
-                    Text("$100")
+                    Text("$500")
                 }
                 Text(total as NSNumber,formatter: NumberFormatter.currency)
                     .frame(maxWidth:.infinity,alignment: .center)
