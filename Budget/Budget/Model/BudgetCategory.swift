@@ -9,9 +9,9 @@ import Foundation
 import CoreData
 
 @objc(BudgetCategory)
-class BudgetCategory:NSManagedObject {
+public class BudgetCategory:NSManagedObject {
     
-    override func awakeFromFetch() {
+    public override func awakeFromFetch() {
         dateCreated = Date()
     }
 }

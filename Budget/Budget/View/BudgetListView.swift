@@ -15,15 +15,20 @@ struct BudgetListView: View {
     var body: some View {
         List {
             ForEach(budgetResults) { budget in
-                HStack {
-                    Text(budget.title ?? "")
-                    Spacer()
-                    Text(budget.total as NSNumber,formatter: NumberFormatter.currency)
+                NavigationLink(value: budget) {
+                    HStack {
+                        Text(budget.title ?? "")
+                        Spacer()
+                        Text(budget.total as NSNumber,formatter: NumberFormatter.currency)
+                    }
                 }
             }
             .onDelete { indexSet in
                 indexSet.map{budgetResults[$0]}.forEach(onDeleteBudgetCategory)
             }
+        }
+        .navigationDestination(for: BudgetCategory.self) { category in
+            BudgetCategoryDetailView(category: category)
         }
     }
 }
